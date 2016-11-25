@@ -126,7 +126,7 @@ end
  end
 
  if matches[1] == "update" then
-  txt = "Updated!"
+  txt = "<i>Updated!<i>"
   send_msg(get_receiver(msg), txt, ok_cb, false)
   return reload_plugins( )
  end
@@ -148,12 +148,8 @@ end
  return "You cant change language (just for sudo!)"
 end
 end
- return {
- advan = {
- "Created by: @janlou",
- "Powered by: @AdvanTm",
- "CopyRight all right reserved",
- },
+ return 
+ 
  patterns = {
     "^[!#/](setlang) (fa)$",
 	   "^[!#/](setlang) (en)$",
