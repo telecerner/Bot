@@ -237,8 +237,7 @@ function create_config( )
     sudo_users = {299362763,tonumber(our_id)},--Sudo users
     support_gp = {},--Support id
     moderation = {data = 'data/adv.json'},
-    about_text = [[*IN THE NAME OF ALLAH*
-]],
+    about_text = [[]],
     --Start rate:
     Group_rate = [[]],
     Supergroup_rate = [[]]
