@@ -229,10 +229,10 @@ function run(msg, matches)
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("sticker:photo", "waiting")
-    	     return 'Please send your sticker now\n\nPowered by '..team..'\nJoin us : '..channel
+    	     return 'Please send your sticker now(●__●)
 				 end
     	redis:set("sticker:photo", "waiting")
-    	return 'Please send your sticker now\n\nPowered by '..team..'\nJoin us : '..channel
+    	return 'Please send your sticker now(⊙_☉)
 			elseif redis:get("wait:"..msg.from.id) then
 			return "Please wait for 30 second."
 			end
@@ -241,10 +241,10 @@ function run(msg, matches)
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("photo:sticker", "waiting")
-           return 'Please send your photo now\n\nPowered by '..team..'\nJoin us : '..channel
+           return 'Please send your photo now(●__●)
 				 end
       redis:set("photo:sticker", "waiting")
-      return 'Please send your photo now\n\nPowered by '..team..'\nJoin us : '..channel
+      return 'Please send your photo now(●__●)
 		  elseif redis:get("wait:"..msg.from.id) then
 			return "Please wait for 30 second."
 			end
@@ -347,7 +347,7 @@ function run(msg, matches)
   file:write(text)
   file:flush()
   file:close()
-  return "You can use it:\n!mynote\n\nYour note has been changed to:\n"..text.."\n\n"..team..'\n<a href="'..channel..'">Join us</a>'
+  return "You can use it:\n!mynote\n\nYour note has been changed to:\n"..text.."\n\n"..team..'\n<a href="
  end
  
    if matches[1] == "mynote" then
