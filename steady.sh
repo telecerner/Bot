@@ -69,9 +69,8 @@ NONVOLUNTARYCHECK=0
 VOLUNTARY=1
 VOLUNTARYCHECK=0
 I=1
-BOT=AdvanSource  # You can put here other bots. Also you can change it to run more than one bot in the same server.
+BOT=TeleSeed  # You can put here other bots. Also you can change it to run more than one bot in the same server.
 RELOADTIME=10  # Time between checking cpu calls of the cli process. Set the value high if your bot does not receive lots of messages.
-LAUNCHER=start.sh
 
 
 function tmux_mode {
@@ -96,26 +95,14 @@ cat << EOF
  $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀   $f5 ▀█▄ ▀▀ ▄█▀    $f6▀▄    ▄▀$rst
  
 EOF
-echo -e "                \e[100m                Steady script          \e[00;37;40m"
-echo -e "\033[38;5;208m            ___          _____                       ___           ___       \033[0;00m"
-echo -e "\033[38;5;208m           /  /\        /  /::\         ___         /  /\         /__/\      \033[0;00m"
-echo -e "\033[38;5;208m          /  /::\      /  /:/\:\       /__/\       /  /::\        \  \:\     \033[0;00m"
-echo -e "\033[38;5;208m         /  /:/\:\    /  /:/  \:\      \  \:\     /  /:/\:\        \  \:\    \033[0;00m"
-echo -e "\033[38;5;208m        /  /:/~/::\  /__/:/ \__\:|      \  \:\   /  /:/~/::\   _____\__\:\   \033[0;00m"
-echo -e "\033[38;5;208m       /__/:/ /:/\:\ \  \:\ /  /:/  ___  \__\:\ /__/:/ /:/\:\ /__/::::::::\  \033[0;00m"
-echo -e "\033[38;5;208m       \  \:\/:/__\/  \  \:\  /:/  /__/\ :  |:| \  \:\/:/__\/ \  \:\~~\~~\/  \033[0;00m"
-echo -e "\033[38;5;208m        \  \::/        \  \:\/:/   \  \:\|  |:|  \  \::/       \  \:\  ~~~   \033[0;00m"
-echo -e "\033[38;5;208m         \  \:\         \  \::/     \  \:\__|:|   \  \:\        \  \:\       \033[0;00m"
-echo -e "\033[38;5;208m          \  \:\         \__\/       \__\::::/     \  \:\        \  \:\      \033[0;00m"
-echo -e "\033[38;5;208m           \__\/                         ~~~~       \__\/         \__\/      \033[0;00m"
-echo -e "\033[38;5;208m               \e[01;34m       https://github.com/janlou/AdvanSource             \e[00;37;40m"
+echo -e "                \e[100m                Steady script           \e[00;37;40m"
+echo -e "               \e[01;34m                    by CRUEL M.KH                 \e[00;37;40m"
 echo ""
 cat << EOF
  $bld$f1▄ ▀▄   ▄▀ ▄   $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4▄ ▀▄   ▄▀ ▄   $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
  $bld$f1█▄█▀███▀█▄█   $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4█▄█▀███▀█▄█   $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
  $bld$f1▀█████████▀   $f2▀▀▀██▀▀██▀▀▀   $f3▀▀█▀▀█▀▀   $f4▀█████████▀   $f5▀▀▀██▀▀██▀▀▀   $f6▀▀█▀▀█▀▀$rst
  $bld$f1 ▄▀     ▀▄    $f2▄▄▀▀ ▀▀ ▀▀▄▄   $f3▄▀▄▀▀▄▀▄   $f4 ▄▀     ▀▄    $f5▄▄▀▀ ▀▀ ▀▀▄▄   $f6▄▀▄▀▀▄▀▄$rst
-
 
 EOF
 
@@ -135,8 +122,9 @@ sleep 0.5
 
 
 echo ""
-echo -e "\033[38;5;208m 𝓟𝓸𝔀𝒆𝓻𝒆𝓭 𝓫𝔂: \033[0;00m"
-echo -e "\033[38;5;208m Ａｄｖａｎ Ｔｅａｍ \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 
@@ -156,7 +144,7 @@ echo -e "$bld$f4 ATTACHING TMUX AS DAEMON...$rst"
 # It is recommended to clear cli status always before starting the bot
 rm ../.telegram-cli/state  > /dev/null 
 # Nested TMUX sessions trick 
-TMUX= tmux new-session -d -s $BOT "./$LAUNCHER"
+TMUX= tmux new-session -d -s $BOT "./launch.sh"
 sleep 1.3
 
 CLIPID=`ps -e | grep telegram-cli | head -1 | sed 's/^[[:space:]]*//' | cut -f 1 -d" "`
@@ -212,7 +200,7 @@ while true; do
 		kill $CLIPID
 		tmux kill-session -t $BOT
 	
-		TMUX= tmux new-session -d -s $BOT "./$LAUNCHER"
+		TMUX= tmux new-session -d -s $BOT "./launch.sh"
 		sleep 1
 		
 		CLIPID=`ps -e | grep telegram-cli | head -1 | sed 's/^[[:space:]]*//' | cut -f 1 -d" "`
@@ -259,26 +247,14 @@ cat << EOF
  $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀   $f5 ▀█▄ ▀▀ ▄█▀    $f6▀▄    ▄▀$rst
  
 EOF
-echo -e "                \e[100m                Steady script          \e[00;37;40m"
-echo -e "\033[38;5;208m            ___          _____                       ___           ___       \033[0;00m"
-echo -e "\033[38;5;208m           /  /\        /  /::\         ___         /  /\         /__/\      \033[0;00m"
-echo -e "\033[38;5;208m          /  /::\      /  /:/\:\       /__/\       /  /::\        \  \:\     \033[0;00m"
-echo -e "\033[38;5;208m         /  /:/\:\    /  /:/  \:\      \  \:\     /  /:/\:\        \  \:\    \033[0;00m"
-echo -e "\033[38;5;208m        /  /:/~/::\  /__/:/ \__\:|      \  \:\   /  /:/~/::\   _____\__\:\   \033[0;00m"
-echo -e "\033[38;5;208m       /__/:/ /:/\:\ \  \:\ /  /:/  ___  \__\:\ /__/:/ /:/\:\ /__/::::::::\  \033[0;00m"
-echo -e "\033[38;5;208m       \  \:\/:/__\/  \  \:\  /:/  /__/\ :  |:| \  \:\/:/__\/ \  \:\~~\~~\/  \033[0;00m"
-echo -e "\033[38;5;208m        \  \::/        \  \:\/:/   \  \:\|  |:|  \  \::/       \  \:\  ~~~   \033[0;00m"
-echo -e "\033[38;5;208m         \  \:\         \  \::/     \  \:\__|:|   \  \:\        \  \:\       \033[0;00m"
-echo -e "\033[38;5;208m          \  \:\         \__\/       \__\::::/     \  \:\        \  \:\      \033[0;00m"
-echo -e "\033[38;5;208m           \__\/                         ~~~~       \__\/         \__\/      \033[0;00m"
-echo -e "\033[38;5;208m               \e[01;34m       https://github.com/janlou/AdvanSource             \e[00;37;40m"
+echo -e "                \e[100m                Steady script           \e[00;37;40m"
+echo -e "               \e[01;34m                    by CRUEL M.KH                 \e[00;37;40m"
 echo ""
 cat << EOF
  $bld$f1▄ ▀▄   ▄▀ ▄   $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4▄ ▀▄   ▄▀ ▄   $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
  $bld$f1█▄█▀███▀█▄█   $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4█▄█▀███▀█▄█   $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
  $bld$f1▀█████████▀   $f2▀▀▀██▀▀██▀▀▀   $f3▀▀█▀▀█▀▀   $f4▀█████████▀   $f5▀▀▀██▀▀██▀▀▀   $f6▀▀█▀▀█▀▀$rst
  $bld$f1 ▄▀     ▀▄    $f2▄▄▀▀ ▀▀ ▀▀▄▄   $f3▄▀▄▀▀▄▀▄   $f4 ▄▀     ▀▄    $f5▄▄▀▀ ▀▀ ▀▀▄▄   $f6▄▀▄▀▀▄▀▄$rst
-
 
 EOF
 
@@ -298,8 +274,9 @@ sleep 0.5
 
 
 echo ""
-echo -e "\033[38;5;208m 𝓟𝓸𝔀𝒆𝓻𝒆𝓭 𝓫𝔂: \033[0;00m"
-echo -e "\033[38;5;208m Ａｄｖａｎ Ｔｅａｍ \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 # Starting preliminar setup
@@ -371,7 +348,7 @@ sleep 1
 echo -e "$bld$f4 ATTACHING SCREEN AS DAEMON...$rst"
 # Better to clear cli status before
 rm ../.telegram-cli/state  > /dev/null 
-screen -d -m bash $LAUNCHER
+screen -d -m bash launch.sh
 
 sleep 1.3
 
@@ -443,7 +420,7 @@ sleep 5
 		kill $CLIPID
 		kill $SCREEN
 		
-		screen -d -m bash $LAUNCHER
+		screen -d -m bash launch.sh
 		sleep 1
 		
 		CLIPID=`ps -e | grep telegram-cli | sed 's/^[[:space:]]*//' | cut -f 1 -d" "`
@@ -493,7 +470,7 @@ exit 1
 
 function screen_detached {
 clear
-screen -d -m bash $LAUNCHER
+screen -d -m bash launch.sh
 echo -e "\e[1m"
 echo -e ""
 echo "Bot running in the backgroud with SCREEN"
@@ -567,8 +544,9 @@ while getopts ":tsTSih" opt; do
 	echo ""
 	echo -e "\e[0m"
 
-echo -e "\033[38;5;208m 𝓟𝓸𝔀𝒆𝓻𝒆𝓭 𝓫𝔂: \033[0;00m"
-echo -e "\033[38;5;208m Ａｄｖａｎ Ｔｅａｍ \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
+echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo -e "\033[38;5;208m @GPMod    :)      @cruel_channel \033[0;00m"
 echo ""
