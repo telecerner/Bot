@@ -228,7 +228,10 @@ function create_config( )
     "setbye",
     "setwlc",
     "sudo",
-    "supergroup",
+    "amir",
+			"rmsg",
+			"savepl",
+			"sendp",
     "language",
     "whitelist",
     "tools"
