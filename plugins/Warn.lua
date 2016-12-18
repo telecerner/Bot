@@ -186,8 +186,9 @@ return {
     "^[!/#]([Ww][Aa][Rr][Nn]) (.*)$",
     "^[!/#]([Uu][Nn][Ww][Aa][Rr][Nn])$",
     "^[!/#]([Uu][Nn][Ww][Aa][Rr][Nn]) (.*)$"
+    "^([اخطار)] (.*)$"
   }, 
   run = run 
 }
 
---By Arian
+--By amircli
