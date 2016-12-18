@@ -9,7 +9,7 @@ function run(msg, matches)
   if msg.to.type == 'channel' then
  if matches[1] == "setlang" and matches[2] == "fa" then
     redis:set("sp:lang", "fa")
-    file = http.request("http://nahrup.ir/view/811/supergroup-fa.txt")
+    file = http.request("http://nahrup.ir/view/811/amir-fa.txt")
 	security = http.request("http://nahrup.ir/view/815/security-fa.txt")
     local b = 1
     while b ~= 0 do
@@ -20,7 +20,7 @@ function run(msg, matches)
     security = security:trim()
     security,b = security:gsub('^!+','')
 	end
-      filea = io.open("./plugins/supergroup.lua", "w")
+      filea = io.open("./plugins/amir.lua", "w")
       filea:write(file)
       filea:flush()
       filea:close()
@@ -32,7 +32,7 @@ function run(msg, matches)
 	  return "<i>زبان سوپرگپ با موفقیت به فارسی با دستورات انگلیسی تغییر کرد</i>"
 elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("sp:lang", "en")
-    file = http.request("http://nahrup.ir/view/810/supergroup-en.txt")
+    file = http.request("http://nahrup.ir/view/810/amir-en.txt")
 	security = http.request("http://nahrup.ir/view/814/security-en.txt")
     local b = 1
     while b ~= 0 do
@@ -43,7 +43,7 @@ elseif matches[1] == "setlang" and matches[2] == "en" then
     security = security:trim()
     security,b = security:gsub('^!+','')
 	end
-      fileb = io.open("./plugins/supergroup.lua", "w")
+      fileb = io.open("./plugins/amir.lua", "w")
       fileb:write(file)
       fileb:flush()
       fileb:close()
@@ -55,7 +55,7 @@ elseif matches[1] == "setlang" and matches[2] == "en" then
 	  return "<i>Supergroup language has been changed</i>"
 elseif matches[1] == "setlang" and matches[2] == "فا" then
     redis:set("sp:lang", "فا")
-    file = http.request("http://nahrup.ir/view/802/supergroup-farsi.txt")
+    file = http.request("http://nahrup.ir/view/802/amir-farsi.txt")
 	security = http.request("http://nahrup.ir/view/809/security-farsi.txt")
     local b = 1
     while b ~= 0 do
@@ -66,7 +66,7 @@ elseif matches[1] == "setlang" and matches[2] == "فا" then
     security = security:trim()
     security,b = security:gsub('^!+','')
 	end
-      filec = io.open("./plugins/supergroup.lua", "w")
+      filec = io.open("./plugins/amir.lua", "w")
       filec:write(file)
       filec:flush()
       filec:close()
@@ -149,9 +149,9 @@ end
 end
 end
  return {
- advan = {
- "Created by: @janlou",
- "Powered by: @AdvanTm",
+ Cerner = {
+ "Created by: @mrcliapi",
+ "Powered by: @nod32_c_h",
  "CopyRight all right reserved",
  },
  patterns = {
