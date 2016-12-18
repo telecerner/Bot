@@ -1,5 +1,5 @@
 do
---create by RoyalTeam ID CHANNEL : @RoyalTeamCh
+--create by nod32Team ID CHANNEL : @nod32_c_h
 -- Returns the key (index) in the config.enabled_plugins table
 local function plugin_enabled( name )
   for k,v in pairs(_config.enabled_plugins) do
@@ -160,7 +160,7 @@ local function run(msg, matches)
     return reload_plugins(true)
   end
 end
---create by RoyalTeam ID CHANNEL : @RoyalTeamCh
+--create by nod32Team ID CHANNEL : @nod32_c_h
 return {
   description = "Plugin to manage other plugins. Enable, disable or reload.", 
   usage = {
