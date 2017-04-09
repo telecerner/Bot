@@ -149,9 +149,9 @@ end
 end
 end
  return {
- advan = {
- "Created by: @janlou",
- "Powered by: @AdvanTm",
+ Cerner = {
+ "Created by: @mrcliapi",
+ "Powered by: @nod32_c_h",
  "CopyRight all right reserved",
  },
  patterns = {
